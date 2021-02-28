@@ -1,0 +1,38 @@
+{
+	"folders": [
+		{
+			"path": "..\\..\\Marlin-bugfix-2.0.x"
+		},
+		{
+			"path": "..\\..\\Marlin 2.0.7.x"
+		},
+		{
+			"path": "..\\..\\BIGTREETECH-TouchScreenFirmware-master (2)\\BIGTREETECH-TouchScreenFirmware-master"
+		},
+		{
+			"path": "..\\..\\EXPERMENTAL"
+		},
+		{
+			"path": "..\\..\\Marlin-2.0.7.2 - CURRENT"
+		},
+		{
+			"path": "..\\..\\Marlin-2.0.7.2 - TMC5160"
+		},
+		{
+			"path": "..\\..\\Nextion4Marlin"
+		},
+		{
+			"path": "..\\..\\Marlin-bugfix-2.0.x Dec29_2020"
+		},
+		{
+			"path": "..\\..\\Marlin-bugfix-2.0._Feb062021"
+		},
+		{
+			"path": "..\\..\\SKR_PRO_1.1\\Marlin-bugfix-2.0._SKR-PRO_Feb062021"
+		},
+		{
+			"path": ".."
+		}
+	],
+	"settings": {}
+}
