@@ -71,56 +71,64 @@
 
 //
 // Steppers
-//
-#define X_STEP_PIN                         PH12 // original PC15  trying E7 on M5 board
-#define X_DIR_PIN                          PH15 // original  PF0
-#define X_ENABLE_PIN                       PI0 // original PF1
+//  IS 'x' BAD ??
+
+#define X_STEP_PIN                         PC15// original PC15  trying E7 on M5 board
+#define X_DIR_PIN                          PF0 // original  PF0
+#define X_ENABLE_PIN                       PF1 // original PF1
 #ifndef X_CS_PIN
   #define X_CS_PIN                          PC14
 #endif
 
-#define Y_STEP_PIN                          PE3
-#define Y_DIR_PIN                           PE2
-#define Y_ENABLE_PIN                        PE4
-#ifndef Y_CS_PIN
-  #define Y_CS_PIN                          PE1
+/*
+// original 'Y'
+#define X_STEP_PIN                          PE3
+#define X_DIR_PIN                           PE2
+#define X_ENABLE_PIN                        PE4
+#ifndef X_CS_PIN
+  #define X_CS_PIN                          PE1
 #endif
-
+*/
 #define Z_STEP_PIN                          PB8
 #define Z_DIR_PIN                           PB7   // PB7
 #define Z_ENABLE_PIN                        PB9
 #ifndef Z_CS_PIN
   #define Z_CS_PIN                          PB5
 #endif
-
-#define E0_STEP_PIN                         PG12
-#define E0_DIR_PIN                          PG11
-#define E0_ENABLE_PIN                       PG13
-#ifndef E0_CS_PIN
-  #define E0_CS_PIN                         PG10
+//E0
+#define Z2_STEP_PIN                         PG12
+#define Z2_DIR_PIN                          PG11
+#define Z2_ENABLE_PIN                       PG13
+#ifndef Z2_CS_PIN
+  #define Z2_CS_PIN                         PG10
+#endif
+//E1
+#define Z3_STEP_PIN                         PD6
+#define Z3_DIR_PIN                          PD5
+#define Z3_ENABLE_PIN                       PD7
+#ifndef Z3_CS_PIN
+  #define Z3_CS_PIN                         PD4
+#endif
+//E2
+#define X2_STEP_PIN                         PD1
+#define X2_DIR_PIN                          PD0
+#define X2_ENABLE_PIN                       PD2
+#ifndef X2_CS_PIN
+  #define X2_CS_PIN                         PC12
 #endif
 
-#define E1_STEP_PIN                         PD6
-#define E1_DIR_PIN                          PD5
-#define E1_ENABLE_PIN                       PD7
-#ifndef E1_CS_PIN
-  #define E1_CS_PIN                         PD4
-#endif
 
-#define E2_STEP_PIN                         PD1
-#define E2_DIR_PIN                          PD0
-#define E2_ENABLE_PIN                       PD2
-#ifndef E2_CS_PIN
-  #define E2_CS_PIN                         PC12
+//  ****** M5 EXPANSION BOARD ****** 
+//E3
+#define Y_STEP_PIN                         PF3
+#define Y_DIR_PIN                          PG3
+#define Y_ENABLE_PIN                       PF8
+#ifndef Y_CS_PIN
+  #define Y_CS_PIN                         PG4
 #endif
-// M5 Board ******
-//#define E3_STEP_PIN                         PF3
-//#define E3_DIR_PIN                          PG3
-//#define E3_ENABLE_PIN                       PF8
-#ifndef E3_CS_PIN
-  #define E3_CS_PIN                         PG4
-#endif
+/*  
 
+//E4 -- Use for Printer 'Y' later
 //#define E4_STEP_PIN                         PD14
 //#define E4_DIR_PIN                          PD11
 //#define E4_ENABLE_PIN                       PG2
@@ -128,6 +136,7 @@
   #define E4_CS_PIN                         PE15
 #endif
 
+//E5
 //#define E5_STEP_PIN                         PE12
 //#define E5_DIR_PIN                          PE10
 //#define E5_ENABLE_PIN                       PF14
@@ -135,19 +144,23 @@
   #define E5_CS_PIN                         PE7
 #endif
 
-//#define E6_STEP_PIN                         PG0
-//#define E6_DIR_PIN                          PG1
-//#define E6_ENABLE_PIN                       PE8
-#ifndef E6_CS_PIN
-  #define E6_CS_PIN                         PF15
+*/ 
+
+//E6
+#define E0_STEP_PIN                         PG0
+#define E0_DIR_PIN                          PG1
+#define E0_ENABLE_PIN                       PE8
+#ifndef E0_CS_PIN
+  #define E0_CS_PIN                         PF15
+#endif
+//E7
+#define E1_STEP_PIN                        PH12
+#define E1_DIR_PIN                          PH15
+#define E1_ENABLE_PIN                       PI0
+#ifndef E1_CS_PIN
+  #define E1_CS_PIN                         PH14
 #endif
 
-//#define E7_STEP_PIN                        // PH12
-//#define E7_DIR_PIN                         // PH15
-//#define E7_ENABLE_PIN                      // PI0
-#ifndef E7_CS_PIN
-  #define E7_CS_PIN                         //PH14
-#endif
 
 //
 // Software SPI pins for TMC2130 stepper drivers
