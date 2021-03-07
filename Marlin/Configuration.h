@@ -684,7 +684,7 @@
 // Mechanical endstop with COM to ground and NC to Signal uses "false" here (most common setup).
 
 #define X_MIN_ENDSTOP_INVERTING true // Set to true to invert the logic of the endstop.
-#define Y_MIN_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
+#define Y_MIN_ENDSTOP_INVERTING true // Set to true to invert the logic of the endstop.
 #define Z_MIN_ENDSTOP_INVERTING true // Set to true to invert the logic of the endstop.
 #define X_MAX_ENDSTOP_INVERTING true // Set to true to invert the logic of the endstop.
 #define Y_MAX_ENDSTOP_INVERTING true // Set to true to invert the logic of the endstop.
@@ -712,23 +712,23 @@
 
 // GTR Board
 /* X Axis */
-#define X_DRIVER_TYPE  TMC2209    // X-front  == x1  GTR Board 'X-'
-#define X2_DRIVER_TYPE TMC2209     // x-rear  == x2  GTR Board 'E0'
+#define X_DRIVER_TYPE  TMC5160    // X-front  == x1  GTR Board 'Y'
+#define X2_DRIVER_TYPE TMC5160     // x-rear  == x2  GTR Board 'E0'
 
 /* Y CNC/Laser Axis */
-#define Y_DRIVER_TYPE   TMC2209   // y-Laser  ==    GTR Board 'Y-'
-//#define Y2_DRIVER_TYPE TB6600   // y-printer
+#define Y_DRIVER_TYPE   TMC5160   // y-Laser  ==    ext.GTR Board 'M1'
+//#define Y2_DRIVER_TYPE TB6600   // y-printer  - if getting 6 axis to work!
 
 /* Z Platform Axis */
-#define Z_DRIVER_TYPE   TMC5160          // z-left  == z1  GTR Board 'z-'
+#define Z_DRIVER_TYPE  TMC5160          // z-left  == z1  GTR Board 'z//'
 #define Z2_DRIVER_TYPE TMC5160    // z-rear == Z2   GTR Board 'E1'
 #define Z3_DRIVER_TYPE TMC5160    // z-rear == Z3  GTR Board 'E2'
 //#define Z4_DRIVER_TYPE TB6600
 
 /* Extruders */
-//#define E0_DRIVER_TYPE TMC5160     // setup for X
-//#define E1_DRIVER_TYPE A4988      // z-right  == z2
-//#define E2_DRIVER_TYPE A4988      // z-rear     == z3
+//#define E0_DRIVER_TYPE TMC2209     // exp.GTR Board 'M4'
+//#define E1_DRIVER_TYPE TMC2209      // exp.GTR Board 'M5'
+//#define E2_DRIVER_TYPE A4988      
 
 
 /* M5 Expansion Board */
@@ -786,18 +786,18 @@
  * 
  *   ms-16 -> 2560   DCM
  * 
- * X ->  16
- * Y -> 16
- * z ->  2 
+ * X ->  2
+ * Y -> 2
+ * z ->  0 : FULL
  */
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 1280, 1280, 320, 1280 } 
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 320, 320, 160, 1280 } 
 
 /**
  * Default Max Feed Rate (mm/s)
  * Override with M203
  *                                      X, Y, Z, E0 [, E1[, E2...]]
  */
-#define DEFAULT_MAX_FEEDRATE          { 10, 10, 10, 5 }
+#define DEFAULT_MAX_FEEDRATE          { 50, 50, 5, 500 }
 
 //#define LIMITED_MAX_FR_EDITING        // Limit edit via M203 or LCD to DEFAULT_MAX_FEEDRATE * 2
 #if ENABLED(LIMITED_MAX_FR_EDITING)
@@ -810,7 +810,7 @@
  * Override with M201
  *                                      X, Y, Z, E0 [, E1[, E2...]]
  */
-#define DEFAULT_MAX_ACCELERATION      { 2, 2, 2, 3 }
+#define DEFAULT_MAX_ACCELERATION      { 5, 5, 2, 3 }
 
 //#define LIMITED_MAX_ACCEL_EDITING     // Limit edit via M201 or LCD to DEFAULT_MAX_ACCELERATION * 2
 #if ENABLED(LIMITED_MAX_ACCEL_EDITING)
@@ -1143,6 +1143,7 @@
 // @section extruder
 
 // For direct drive extruder v9 set to true, for geared extruder set to false.
+/**
 #define INVERT_E0_DIR false
 #define INVERT_E1_DIR false
 #define INVERT_E2_DIR false
@@ -1151,6 +1152,7 @@
 #define INVERT_E5_DIR false
 #define INVERT_E6_DIR false
 #define INVERT_E7_DIR false
+**/
 
 // @section homing
 

@@ -1,4 +1,4 @@
-/**
+/**  2.0.7.2
  * Build Notes:
  * DCM: 
  * 
@@ -563,7 +563,7 @@
 
 #define X_DUAL_STEPPER_DRIVERS
 #if ENABLED(X_DUAL_STEPPER_DRIVERS)
-  #define INVERT_X2_VS_X_DIR true   // Set 'true' if X motors should rotate in opposite directions
+  #define INVERT_X2_VS_X_DIR false   // Set 'true' if X motors should rotate in opposite directions
   #define X_DUAL_ENDSTOPS
   #if ENABLED(X_DUAL_ENDSTOPS)
     #define X2_USE_ENDSTOP _XMAX_
@@ -839,7 +839,7 @@
 //#define MULTI_NOZZLE_DUPLICATION
 
 // By default pololu step drivers require an active high signal. However, some high power drivers require an active low signal as step.
-#define INVERT_X_STEP_PIN true
+#define INVERT_X_STEP_PIN false
 #define INVERT_Y_STEP_PIN false
 #define INVERT_Z_STEP_PIN false
 #define INVERT_E_STEP_PIN false
@@ -2277,27 +2277,27 @@
   #if AXIS_IS_TMC(X)
 // BTT 5560 PEAK = 
   // BTT 5560 max RMS = 3000.   // testing 5160
-  // 2209
+  // 5160
     #define X_CURRENT       1000   // (mA) RMS current. Multiply by 1.414 for peak current.
     #define X_CURRENT_HOME  X_CURRENT  // (mA) RMS current for sensorless homing
-    #define X_MICROSTEPS     16   // 0..256
-    #define X_RSENSE          0.011
+    #define X_MICROSTEPS     2  // 0..256
+    #define X_RSENSE          0.075
     #define X_CHAIN_POS      -1    // <=0 : Not chained. 1 : MCU MOSI connected. 2 : Next in chain, ...
   #endif
-   // 2209
+   // 5160
   #if AXIS_IS_TMC(X2)
     #define X2_CURRENT      1000
     #define X2_CURRENT_HOME X2_CURRENT
-    #define X2_MICROSTEPS    16
-    #define X2_RSENSE        0.11
+    #define X2_MICROSTEPS    2
+    #define X2_RSENSE        0.075
     #define X2_CHAIN_POS      -1
   #endif
-  //  2209
-  #if AXIS_IS_TMC(Y)              //Testing 2209
+  //  5160
+  #if AXIS_IS_TMC(Y)              
     #define Y_CURRENT       1000
     #define Y_CURRENT_HOME  Y_CURRENT
-    #define Y_MICROSTEPS     16
-    #define Y_RSENSE         0.011
+    #define Y_MICROSTEPS     2
+    #define Y_RSENSE         0.075
     #define Y_CHAIN_POS       -1
   #endif
 
@@ -2313,11 +2313,12 @@
   #if AXIS_IS_TMC(Z)           
 
   // Max voltage = 35v
+  // Z motors
   // Max current 3000 
   // 4489 max RMS = 
     #define Z_CURRENT       1475
     #define Z_CURRENT_HOME  Z_CURRENT
-    #define Z_MICROSTEPS     2
+    #define Z_MICROSTEPS     0
     #define Z_RSENSE          0.075 // TMC2209 =>  0.011  TMC 5160 => 0.075
     #define Z_CHAIN_POS     -1
   #endif
@@ -2325,7 +2326,7 @@
   #if AXIS_IS_TMC(Z2)
     #define Z2_CURRENT      1475
     #define Z2_CURRENT_HOME Z2_CURRENT
-    #define Z2_MICROSTEPS    2
+    #define Z2_MICROSTEPS    0
     #define Z2_RSENSE         0.075
     #define Z2_CHAIN_POS      -1
   #endif
@@ -2333,7 +2334,7 @@
   #if AXIS_IS_TMC(Z3)
     #define Z3_CURRENT      1475
     #define Z3_CURRENT_HOME Z3_CURRENT
-    #define Z3_MICROSTEPS    2
+    #define Z3_MICROSTEPS    0
     #define Z3_RSENSE         0.075
     #define Z3_CHAIN_POS     -1
   #endif
@@ -2345,7 +2346,7 @@
     #define Z4_RSENSE         0.075
     #define Z4_CHAIN_POS     -1
   #endif
-
+/*
   #if AXIS_IS_TMC(E0)  
     #define E0_CURRENT      800
     #define E0_MICROSTEPS    16
@@ -2401,6 +2402,9 @@
     #define E7_RSENSE        0.075
     #define E7_CHAIN_POS     -1
   #endif
+*/
+
+
 
   /**
    * Override default SPI pins for TMC2130, TMC2160, TMC2660, TMC5130 and TMC5160 drivers here.
@@ -2444,10 +2448,10 @@
    * Set *_SERIAL_TX_PIN and *_SERIAL_RX_PIN to match for all drivers
    * on the same serial port, either here or in your board's pins file.
    */
-  #define  X_SLAVE_ADDRESS 0
-  #define  Y_SLAVE_ADDRESS 1
+  //#define  X_SLAVE_ADDRESS 0
+  //#define  Y_SLAVE_ADDRESS 0
   //#define  Z_SLAVE_ADDRESS 0
-  #define X2_SLAVE_ADDRESS 0
+  //#define X2_SLAVE_ADDRESS 0
   //#define Y2_SLAVE_ADDRESS 0
   //#define Z2_SLAVE_ADDRESS 0
   //#define Z3_SLAVE_ADDRESS 0
@@ -2506,7 +2510,7 @@
    * M912 - Clear stepper driver overtemperature pre-warn condition flag.
    * M122 - Report driver parameters (Requires TMC_DEBUG)
    */
-  //#define MONITOR_DRIVER_STATUS
+  #define MONITOR_DRIVER_STATUS
 
   #if ENABLED(MONITOR_DRIVER_STATUS)
     #define CURRENT_STEP_DOWN     50  // [mA]
